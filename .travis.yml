@@ -11,7 +11,7 @@ script:
   - docker-compose exec web rails db:migrate 
   - docker-compose exec web rails test 
 
-script: travis_wait 30 script.sh
+script: travis_wait 60 script.sh
 
 deploy:
   provider: script
