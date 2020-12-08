@@ -1,1 +1,32 @@
-<h1>テストアプリ</h1>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div class="app">   
+<h1 style="color: red; background-color: white;">{{ message }}</h1>
+<button v-on:click="reverseMessage">メッセージを反転</button>
+<input type="text" v-model="message">{{message}}
+<ul>
+ <li v-for="fruit in fruits" :key="fruit">{{fruit}}</li>
+</ul>
+<ul>
+  <template v-for="fruit in fruits">
+    <li>{{fruit}}</li>
+    <hr>
+  </template>
+</ul>
+</div>
+
+<script>
+var app = new Vue({
+  el: '.app',
+  data: {
+    message: 'Hello Vue!',
+    fruits: ['りんご', 'バナナ', 'ぶどう'],
+  },
+  methods: {
+    reverseMessage: function() {
+      this.message = this.message.split("").reverse().join("")
+    }
+  }
+})
+</script>
+
